@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hi</title>
+    <style>
+      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="http://192.168.64.128:3000/socket.io/socket.io.js"></script>
+
+    <script>
+      var ChatRoom_seq = location.search.split("ChatRoom_seq=")[1];
+      var socket = io.connect("192.168.64.128:3000");
+      var sessionID,sessionName;
+      // 세션 data (PHP)  -  sess_id
+      $.ajax({
+          url: "../chatting/session.php",
+          type: "get",
+        }).done(function (data) {
+          var d = JSON.parse(data);
+          sessionID = d[0];
+          sessionName = d[1];
+        });
+      // chat data (PHP)
+      $.ajax({
+          url: "../chatting/chat.php",
+          type: "get",
+          data: {ChatRoom_seq: ChatRoom_seq}
+        }).done(function (data) {
+          var chat = JSON.parse(data);
+          chat.forEach(element => {
+            if(element.userID === sessionID){ // user 가 입력한 msg
+              $('#messages').append($('<li>').css("text-align", "right").text(`${element.userName} : ${element.msg}`));
+            }else{ // 상대방이 입력한 msg
+              $('#messages').append($('<li>').text(`${element.userName} : ${element.msg}`));
+              document.title = `${element.userName}`;
+            }window.scrollTo(0, document.body.scrollHeight);
+          });
+        });
+
+      // send
+      $('form').submit(function(){
+        var a = $('#input').val();
+        const msg = `{"ChatRoom_seq":${ChatRoom_seq},"id":"${sessionID}","name":"${sessionName}", "msg":"${$('#input').val()}"}`;
+        socket.emit('msg', msg);
+        $('#input').val('');
+        return false;
+      });
+      // receive
+      socket.on('msg', function(msg) {
+        var name = msg.split(':')[0].trim(); // 넘어온 id
+        var chat_msg = msg.split(':')[1].trim(); // 넘어온 msg
+        if(name === sessionName){
+          $('#messages').append($('<li>').css("text-align", "right").text(msg));
+        }else{
+          $('#messages').append($('<li>').text(msg));
+        }
+        window.scrollTo(0, document.body.scrollHeight);
+        // Insert Chat
+        // $.ajax({
+        //   url: "../chatting/InsertChat.php",
+        //   type: "get",
+        //   data: {'id': sessionID,'msg': chat_msg, 'ChatRoom_seq': ChatRoom_seq }
+        // }).done(function(data) {
+        //   console.log(data);
+        // });
+      });
+    </script>
+  </body>
+</html>

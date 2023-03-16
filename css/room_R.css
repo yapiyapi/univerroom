@@ -1,0 +1,286 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    color: black;
+    border: 0px;
+    box-sizing: border-box;
+  }
+  
+  .intro_bg {
+    background: linear-gradient(45deg, rgb(121, 194, 239), rgb(153, 212, 244));
+    width: 100%;
+    height: 90px;
+  }
+  
+  .header {
+    display: flex;
+    width: 1280px;
+    margin: auto;
+    height: 86px;
+  }
+  
+  .logo {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 12px;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    line-height: 86px;
+    width: 100%;
+  }
+  
+  .nav>li {
+    margin-left: 150px;
+  }
+  
+  /** 게시판 **/
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  section.notice {
+    padding: 80px 0;
+  }
+
+  .title {
+    width: 1100px;
+    margin: 0 auto;
+    font-size: 28px;
+    color: #333333;
+    font-weight: 400;
+    text-align: start;
+  }
+ 
+  
+  .btn {
+    display: inline-block;
+    padding: 0 30px;
+    font-size: 15px;
+    font-weight: 400;
+    background: transparent;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .btn-dark {
+    background: #555;
+    color: #fff;
+  }
+  
+  .btn-dark:hover, .btn-dark:focus {
+    background: #373737;
+    border-color: #373737;
+    color: #fff;
+  }
+  
+  .btn-dark {
+    background: #555;
+    color: #fff;
+  }
+  
+  .btn-dark:hover, .btn-dark:focus {
+    background: #373737;
+    border-color: #373737;
+    color: #fff;
+  }
+  
+  /* reset */
+  
+  * {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .container_title {
+    width: 1100px;
+    margin: 0 auto;
+    margin-top: -10px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    display: flex;
+  }
+  .container_img {
+    width: 1100px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  .container_con {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+  .blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+  }
+  /* 글쓴이 */  
+  #writter_thumnail{
+    margin: 30px 5px;
+    width: 25px;
+    height: 25px;
+  }
+  .writter{
+    padding-top: 24px;
+  }
+  #writter_id{
+    font-size: 12px;
+    color: #ccc;
+  }
+  #add_date{
+    font-size: 12px;
+    color: #ccc;
+  }
+  /* 글쓰기 */  
+  .toWrite{
+    text-align: center;
+    margin-left: 900px;
+  }
+
+  /* 하트 */
+  a{
+    text-decoration:none; color:inherit; cursor: pointer;
+  }
+  .heart{
+    display: flex;
+    margin-left: auto;
+    margin-top: 8px;
+    margin-right: 10px;
+  }
+   .right_area .icon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100vw * (45 / 1920));
+      height: calc(100vw * (45 / 1920));
+  
+      border-radius: 50%;
+      border: solid 2px #eaeaea;
+      background-color: #fff;
+    }
+    .left_area{
+      font-size: 12px;
+      color: #ccc;
+      font-weight: 200;
+      text-align: left;
+      padding-top: 16px;
+    }
+  
+  .icon.heart img{
+      width: calc(100vw * (24 / 1920));
+      height: calc(100vw * (24 / 1920));
+  }
+  
+  .icon.heart.fas{
+    color:red
+  }
+  .heart{
+      transform-origin: center;
+  }
+  .heart.active img{
+      animation: animateHeart .3s linear forwards;
+  }
+  
+  @keyframes animateHeart{
+      0%{transform:scale(.2);}
+      40%{transform:scale(1.2);}
+      100%{transform:scale(1);}
+    }
+
+/* 조회수 */
+.hit{
+  font-size: 12px;
+  color: #ccc;
+  font-weight: 200;
+  text-align: right;
+  
+  padding-top: 24px;
+}
+.left{
+  margin-left: auto;
+}
+/* 버튼 */
+.chat_btn{
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.chat_btn a{
+  background-color: rgb(120, 199, 238);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.chat_btn div{
+  background-color: rgb(187, 187, 187);
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width:80px;
+}
+.Btn_gray{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.Btn_gray a {
+  background-color: gray;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+}
+/* 주요정보 */
+.title_key{
+  width: 1100px;
+  margin: 0 auto;
+  font-size: 24px;
+  color: #333333;
+  font-weight: 350;
+  text-align: start;
+}

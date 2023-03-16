@@ -1,0 +1,171 @@
+ /* intro */
+ * {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+
+.intro_bg {
+    background: linear-gradient(45deg, rgb(121, 194, 239), rgb(153, 212, 244));
+    width: 100%;
+    height: 90px;
+}
+
+.header {
+    display: flex;
+    width: 1280px;
+    margin: auto;
+    height: 86px;
+}
+
+.logo {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 12px;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    line-height: 86px;
+    width: 100%;
+}
+
+.nav>li {
+    margin-left: 150px;
+}
+
+/* 프로필 */
+
+.Ch_pw-wrapper {
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    margin: auto;
+    margin-top: 100px;
+    box-sizing: border-box;
+}
+
+.Ch_pw-wrapper>h2 {
+    font-size: 24px;
+    color: #71afdb;
+    margin-bottom: 20px;
+}
+
+#Ch_pw-form>input {
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+#Ch_pw-form>input::placeholder {
+    color: #D2D2D2;
+}
+
+#Ch_pw-form>input[type="submit"] {
+    color: #fff;
+    font-size: 16px;
+    background-color: #71afdb;
+    margin-top: 20px;
+}
+
+#Ch_pw-form>input[type="checkbox"] {
+    display: none;
+}
+
+#Ch_pw-form>label {
+    color: #999999;
+}
+
+#Ch_pw-form input[type="checkbox"]+label {
+    cursor: pointer;
+    padding-left: 26px;
+    background-image: url("checkbox.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#Ch_pw-form input[type="checkbox"]:checked+label {
+    background-image: url("checkbox-active.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* logout */
+.logout{
+    text-align: center;
+    display: flex;
+}
+.logout div{
+    margin: 0 auto;
+}
+#font_red{
+    color: red;
+}
+
+/* mismatch */
+.hide {
+    display: none;
+}
+.mismatch-message{
+    font-size: 8px;
+    color: red;
+    margin-top: -12px;
+    margin-bottom: 8px;
+}
+.mismatchSc-message{
+    font-size: 8px;
+    color: rgb(26, 194, 26);
+    margin-top: -12px;
+    margin-bottom: 8px;
+}
+/* snackbar */
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin: auto;
+    background-color: #767676;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 40%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
